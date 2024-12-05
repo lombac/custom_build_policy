@@ -1,0 +1,21 @@
+metadata:
+  name: "Demo-lombac-051224-Terraform"
+  severity: "high"
+  guidelines: "Force t3.micro or t3.nano"
+  category: "compute"
+scope:
+  provider: "aws"
+definition:
+  or:
+    - cond_type: "attribute"
+      resource_types:
+        - "aws_instance"
+      attribute: "instance_type"
+      operator: "equals"
+      value: "t3.micro"
+    - cond_type: "attribute"
+      resource_types:
+        - "aws_instance"
+      attribute: "instance_type"
+      operator: "equals"
+      value: "t3.nano"
